@@ -75,7 +75,7 @@ function Copy-OctopusLibraryVariableSets
 
         $sourceVariableSetVariables = Get-OctopusVariableSetVariables -variableSet $sourceVariableSet -OctopusData $sourceData
         $destinationVariableSetVariables = Get-OctopusVariableSetVariables -variableSet $destinationVariableSet -OctopusData $DestinationData 
-
+$destinationVariableSetVariables.OverwriteExistingVariables="$false"
         Write-OctopusPostCloneCleanUp "*****************Starting clone of variable set $($sourceVariableSet.Name)*****************"
         Copy-OctopusVariableSetValues -SourceVariableSetVariables $sourceVariableSetVariables -DestinationVariableSetVariables $destinationVariableSetVariables -SourceData $SourceData -DestinationData $DestinationData -CloneScriptOptions $cloneScriptOptions
         Write-OctopusPostCloneCleanUp "*****************Ending clone of variable set $($sourceVariableSet.Name)*******************"
